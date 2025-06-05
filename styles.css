@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.header h1 {
+    color: #0056b3;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* The single unified box */
+.main-container-box {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: 1fr 2fr; /* Two equal columns */
+    gap: 20px; /* Space between columns, smaller now to make border fit */
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px; /* Padding inside the unified box */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the left column content */
+.left-column-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 20px; /* Padding for content inside column, away from border */
+    border-right: 1px solid #e0e0e0; /* <-- DISTINCT VERTICAL BORDER */
+}
+.left-column-content h2 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.link-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.link-buttons-container a {
+    text-decoration: none;
+    width: 100%;
+}
+.link-buttons-container button {
+    width: 100%;
+    background-color: #4a89b9;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.link-buttons-container button:hover {
+    background-color: #161236;
+}
+.current-time {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+    width: 100%;
+}
+
+/* Styles for the right column content */
+.right-column-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 20px; /* Padding for content inside column, away from border */
+}
+.comic-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+#toggleWakeLockButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+#toggleWakeLockButton:hover {
+    background-color: #0056b3;
+}
+#toggleWakeLockButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+#toggleWakeLockButton.off {
+    background-color: #dc3545;
+}
+#toggleWakeLockButton.off:hover {
+    background-color: #c82333;
+}
+.status {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #666;
+    width: 100%;
+    text-align: right;
+}
+.status.active {
+    color: #28a745;
+}
+.status.inactive {
+    color: #dc3545;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-container-box {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: 20px;
+        padding: 20px;
+    }
+    .left-column-content, .right-column-content {
+        align-items: center; /* Center content when stacked */
+        text-align: center; /* Center text elements */
+        padding-left: 0; /* Remove horizontal padding when stacked */
+        padding-right: 0;
+    }
+    .left-column-content {
+        border-right: none; /* Remove vertical border when stacked */
+        border-bottom: 1px solid #e0e0e0; /* <-- Add a horizontal border when stacked */
+        padding-bottom: 20px; /* Add padding below the border */
+        margin-bottom: 20px; /* Add margin below the border */
+    }
+    .right-column-content {
+        padding-top: 0; /* No top padding when stacked */
+    }
+    .current-time, .status {
+        text-align: center;
+    }
+    .comic-image {
+        max-width: 90%;
+    }
+    .link-buttons-container {
+        gap: 10px;
+    }
+    .link-buttons-container button {
+        font-size: 1em;
+    }
+}
